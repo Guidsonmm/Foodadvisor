@@ -32,7 +32,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
         env:
-        {{- toYaml .Values.backend.extraEnvs | nindent 12 }}
+          {{- toYaml .Values.backend.extraEnvs | nindent 12 }}
           securityContext:
             {{- toYaml .Values.backend.securityContext | nindent 12 }}
           image: "{{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag | default .Chart.AppVersion }}"
